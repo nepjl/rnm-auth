@@ -6,7 +6,6 @@ import { Link, useNavigate } from 'react-router-dom';
 const Login = () => {
   const [values, setValues] = useState({
     email: '',
-    telephone: '',
     password: '',
   });
 
@@ -23,7 +22,7 @@ const Login = () => {
       const response = await axios.post('http://localhost:3000/auth/login', values)
       // console.log(response.data);
 
-      if(response.status === 201){
+      if(response.status === 200){
         localStorage.setItem('token', response.data.token);
           navigate('/');
       }
